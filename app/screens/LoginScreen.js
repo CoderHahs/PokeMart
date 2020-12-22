@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, ImageBackground, StyleSheet, View } from "react-native";
+import Button from "../components/Button";
 import colors from "../config/colors";
 
 function LoginScreen(props) {
@@ -10,8 +11,10 @@ function LoginScreen(props) {
       source={require("../assets/background.jpg")}
     >
       <Image style={styles.logo} source={require("../assets/logo.png")} />
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+      <View style={styles.buttonsContainer}>
+        <Button title="Login" />
+        <Button title="Register" color="primary" />
+      </View>
     </ImageBackground>
   );
 }
@@ -22,21 +25,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  loginButton: {
+  buttonsContainer: {
+    padding: 20,
     width: "100%",
-    height: 70,
-    backgroundColor: colors.secondary,
   },
   logo: {
     width: 337,
     height: 230,
     position: "absolute",
     top: 100,
-  },
-  registerButton: {
-    width: "100%",
-    height: 70,
-    backgroundColor: colors.primary,
   },
 });
 
