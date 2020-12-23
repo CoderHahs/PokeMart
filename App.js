@@ -5,10 +5,11 @@ import Button from "./app/components/Button";
 import Card from "./app/components/Card";
 import ListingScreen from "./app/screens/ListingScreen";
 import LoginScreen from "./app/screens/LoginScreen";
+import MessageScreen from "./app/screens/MessageScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return <MessageScreen />;
 }
 
 const styles = StyleSheet.create({
