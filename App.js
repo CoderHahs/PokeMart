@@ -15,9 +15,10 @@ import AccountScreen from "./app/screens/AccountScreen";
 import ViewListingsScreen from "./app/screens/ViewListingsScreen";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 export default function App() {
-  return <LoginScreen />;
+  return <ListingEditScreen />;
 }
 
 const styles = StyleSheet.create({
