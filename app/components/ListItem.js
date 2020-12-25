@@ -8,7 +8,7 @@ function ListItem({
   title,
   subTitle,
   image,
-  ImageComponent,
+  IconComponent,
   onPress,
   renderRightActions,
   friction,
@@ -17,7 +17,7 @@ function ListItem({
     <Swipeable renderRightActions={renderRightActions} friction={friction}>
       <TouchableHighlight underlayColor={colors.lightGrey} onPress={onPress}>
         <View style={styles.container}>
-          {ImageComponent}
+          {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.details}>
             <AppText style={styles.title}>{title}</AppText>

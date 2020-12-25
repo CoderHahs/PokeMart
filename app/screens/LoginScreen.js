@@ -1,39 +1,66 @@
 import React from "react";
-import { Image, ImageBackground, StyleSheet, View } from "react-native";
-import Button from "../components/Button";
-import colors from "../config/colors";
+import { Image, StyleSheet, View } from "react-native";
+import * as Yup from "yup";
+import Screen from "../components/Screen";
+import AppFormField from "../components/AppFormField";
+import SubmitButton from "../components/SubmitButton";
+import AppForm from "../components/AppForm";
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email().label("Email"),
+  password: Yup.string().required().min(6).label("Password"),
+});
 
 function LoginScreen(props) {
   return (
-    <ImageBackground
-      blurRadius={4}
-      style={styles.background}
-      source={require("../assets/background.jpg")}
-    >
+    <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo.png")} />
-      <View style={styles.buttonsContainer}>
-        <Button title="Login" />
-        <Button title="Register" color="primary" />
-      </View>
-    </ImageBackground>
+      <AppForm
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
+      >
+        <AppFormField
+          name="email"
+          placeholder="Email"
+          icon="email"
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType="email-address"
+          textContentType="emailAddress"
+        />
+        <AppFormField
+          name="password"
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="lock"
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
+        />
+        <View style={styles.buttonContainer}>
+          <SubmitButton title="Login" />
+        </View>
+      </AppForm>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
-  buttonsContainer: {
-    padding: 20,
+  buttonContainer: {
+    padding: 50,
     width: "100%",
+    paddingTop: 40,
+  },
+  container: {
+    padding: 10,
   },
   logo: {
-    width: 337,
-    height: 230,
-    position: "absolute",
-    top: 100,
+    width: 169,
+    height: 115,
+    alignSelf: "center",
+    marginTop: 50,
+    marginBottom: 20,
   },
 });
 

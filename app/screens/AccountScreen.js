@@ -4,6 +4,7 @@ import Screen from "../components/Screen";
 import Icon from "../components/Icon";
 import { FlatList, View, StyleSheet } from "react-native";
 import colors from "../config/colors";
+import ListItemSeparator from "../components/ListItemSeparator";
 
 const menuItems = [
   {
@@ -36,10 +37,11 @@ function AccountScreen(props) {
         <FlatList
           data={menuItems}
           keyExtractor={(item) => item.title}
+          ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
-              ImageComponent={
+              IconComponent={
                 <Icon
                   name={item.icon.name}
                   backgroundColor={item.icon.backgroundColor}
@@ -49,6 +51,10 @@ function AccountScreen(props) {
           )}
         />
       </View>
+      <ListItem
+        title="Log Out"
+        IconComponent={<Icon name="logout" backgroundColor="#FFFF66" />}
+      />
     </Screen>
   );
 }
