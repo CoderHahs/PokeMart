@@ -1,28 +1,48 @@
 import React from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
+import listingsApi from "../api/listings";
 import routes from "../navigation/routes";
-
-const listings = [
-  {
-    id: 1,
-    title: "PSA-9 Charizard",
-    price: 2000,
-    image: require("../assets/card.jpg"),
-  },
-  {
-    id: 2,
-    title: "Rayquaza C lv. X",
-    price: 1500,
-    image: require("../assets/card2.jpg"),
-  },
-];
+import { useState } from "react";
+import { useEffect } from "react";
+import AppText from "../components/AppText";
+import Button from "../components/Button";
 
 function ViewListingsScreen({ navigation }) {
+  const [listings, setListings] = useState([]);
+
+  const [error, setError] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    loadListings();
+  }, []);
+
+  const loadListings = async () => {
+    setLoading(true);
+    const response = await listingsApi.getListings();
+    setLoading(false);
+
+    if (!response.ok) return setError(true);
+
+    setError(false);
+    setListings(response.data);
+  };
+
   return (
     <Screen style={styles.screen}>
+      {error && (
+        <>
+          <AppText>Couldn't retrieve the listings.</AppText>
+          <View style={styles.buttonsContainer}>
+            <Button title="Retry" onPress={loadListings} />
+          </View>
+        </>
+      )}
+      <ActivityIndicator color="#000" animating={loading} size="large" />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
@@ -30,7 +50,7 @@ function ViewListingsScreen({ navigation }) {
           <Card
             title={item.title}
             subTitle={"$" + item.price}
-            image={item.image}
+            imageUrl={item.images[0].url}
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
         )}
@@ -40,6 +60,10 @@ function ViewListingsScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  buttonsContainer: {
+    paddingHorizontal: 50,
+    width: "100%",
+  },
   screen: {
     padding: 15,
     backgroundColor: colors.lightGrey,
