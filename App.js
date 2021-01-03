@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { AppLoading } from "expo";
+import React, { useState } from "react";
+import AppLoading from "expo-app-loading";
 import { NavigationContainer } from "@react-navigation/native";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
@@ -14,15 +14,18 @@ export default function App() {
 
   const [ready, setReady] = useState(false);
 
-  const restoreToken = async () => {
-    const token = await authStorage.getToken();
-    if (!token) return;
-    setUser(jwtDecode(token));
+  const restoreUser = async () => {
+    const user = await authStorage.getUser();
+    if (user) setUser(user);
   };
 
   if (!ready)
     return (
-      <AppLoading startAsync={restoreToken} onFinish={() => setReady(true)} />
+      <AppLoading
+        startAsync={restoreUser}
+        onFinish={() => setReady(true)}
+        onError={() => console.log("error")}
+      />
     );
 
   return (

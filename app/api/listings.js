@@ -4,11 +4,7 @@ const endpoint = "/listings";
 
 const getListings = () => client.get(endpoint);
 
-const addListing = (listing, onUploadProgress) => {
-  // content-type
-  // application/json
-  // multipart/form-data
-
+export const addListing = (listing, onUploadProgress) => {
   const data = new FormData();
   data.append("title", listing.title);
   data.append("price", listing.price);
@@ -33,6 +29,6 @@ const addListing = (listing, onUploadProgress) => {
 };
 
 export default {
-  getListings,
   addListing,
+  getListings,
 };
