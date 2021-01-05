@@ -5,10 +5,10 @@ const settings = {
     apiUrl: "http://192.168.86.57:9000/api",
   },
   staging: {
-    apiUrl: "http://192.168.86.57:9000/api",
+    apiUrl: "https://pokemart-mobile.herokuapp.com/api/",
   },
   prod: {
-    apiUrl: "http://192.168.86.57:9000/api",
+    apiUrl: "https://pokemart-mobile.herokuapp.com/api/",
   },
 };
 

@@ -3,6 +3,7 @@
     "name": "PokeMart",
     "slug": "PokeMart",
     "version": "1.0.0",
+    "privacy": "unlisted",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",
     "splash": {
@@ -20,11 +21,14 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.coderhahs.pokemart",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
+    "description": "A marketplace for all things Pokemon - PokeMart!",
     "web": {
       "favicon": "./assets/favicon.png"
     }
