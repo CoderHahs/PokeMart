@@ -2,7 +2,7 @@ import Constants from "expo-constants";
 
 const settings = {
   dev: {
-    apiUrl: "http://192.168.86.57:9000/api",
+    apiUrl: "https://pokemart-mobile.herokuapp.com/api/",
   },
   staging: {
     apiUrl: "https://pokemart-mobile.herokuapp.com/api/",
