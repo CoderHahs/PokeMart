@@ -1,39 +1,9 @@
 const listings = [
   {
-    id: 201,
-    title: "Red jacket",
-    images: [{ fileName: "jacket1" }],
-    price: 100,
-    categoryId: 5,
-    userId: 1,
-    location: {
-      latitude: 37.78825,
-      longitude: -122.4324,
-    },
-  },
-  {
-    id: 3,
-    title: "Gray couch in a great condition",
-    images: [{ fileName: "couch2" }],
-    categoryId: 1,
-    price: 1200,
-    userId: 2,
-    location: {
-      latitude: 37.78825,
-      longitude: -122.4324,
-    },
-  },
-  {
     id: 1,
-    title: "Room & Board couch (great condition) - delivery included",
-    description:
-      "I'm selling my furniture at a discount price. Pick up at Venice. DM me asap.",
-    images: [
-      { fileName: "couch1" },
-      { fileName: "couch2" },
-      { fileName: "couch3" },
-    ],
-    price: 1000,
+    title: "Charizard Pokemon Card",
+    images: [{ fileName: "charizard" }],
+    price: 2000,
     categoryId: 1,
     userId: 1,
     location: {
@@ -43,10 +13,10 @@ const listings = [
   },
   {
     id: 2,
-    title: "Designer wear shoes",
-    images: [{ fileName: "shoes1" }],
-    categoryId: 5,
-    price: 100,
+    title: "Pikachu Figurine - Mint Condition",
+    images: [{ fileName: "pikachu_figurine" }],
+    categoryId: 1,
+    price: 80,
     userId: 2,
     location: {
       latitude: 37.78825,
@@ -54,9 +24,34 @@ const listings = [
     },
   },
   {
-    id: 102,
-    title: "Canon 400D (Great Condition)",
-    images: [{ fileName: "camera1" }],
+    id: 3,
+    title: "Mega Rayquaza Ex PSA 9",
+    description: "This card is in mint condition",
+    images: [{ fileName: "raquaza" }],
+    price: 1000,
+    categoryId: 1,
+    userId: 1,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 4,
+    title: "Charmander Wood Carving",
+    images: [{ fileName: "charmander_wodd" }],
+    categoryId: 2,
+    price: 120,
+    userId: 2,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 5,
+    title: "Pokemon Coins (50)",
+    images: [{ fileName: "coins" }],
     price: 300,
     categoryId: 3,
     userId: 1,
@@ -66,10 +61,10 @@ const listings = [
     },
   },
   {
-    id: 101,
-    title: "Nikon D850 for sale",
-    images: [{ fileName: "camera2" }],
-    price: 350,
+    id: 6,
+    title: "Rare pokemon cards for sale",
+    images: [{ fileName: "collection_cards" }],
+    price: 10000,
     categoryId: 3,
     userId: 1,
     location: {
@@ -78,12 +73,12 @@ const listings = [
     },
   },
   {
-    id: 4,
-    title: "Sectional couch - Delivery available",
-    description: "No rips no stains no odors",
-    images: [{ fileName: "couch3" }],
+    id: 7,
+    title: "Yellow-Cheeks Pikachu, PSA 8",
+    description: "Can verify the level of authenticity",
+    images: [{ fileName: "yellow-cheeks-pikachu" }],
     categoryId: 1,
-    price: 950,
+    price: 3000,
     userId: 2,
     location: {
       latitude: 37.78825,
@@ -91,10 +86,10 @@ const listings = [
     },
   },
   {
-    id: 6,
-    title: "Brown leather shoes",
-    images: [{ fileName: "shoes2" }],
-    categoryId: 5,
+    id: 8,
+    title: "Groudon Legendary Figurine",
+    images: [{ fileName: "groudon" }],
+    categoryId: 2,
     price: 50,
     userId: 2,
     location: {
